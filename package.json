@@ -1,0 +1,15 @@
+{
+  "name": "frontend-project-46",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/Mosto24/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Mosto24/frontend-project-46/actions)",
+  "main": "commander.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^11.1.0"
+  },
+  "type": "module"
+}
