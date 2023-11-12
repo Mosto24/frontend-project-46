@@ -8,10 +8,23 @@ const program = require('commander');
 const fs = require('node:fs');
 const Command = require('commander');
 const _ = require('lodash');
+const yaml = require('js-yaml');
 
 function takeAndEcho(filepath1, filepath2) {
-  const f1 = JSON.parse(fs.readFileSync(filepath1, "utf8"));
-  const f2 = JSON.parse(fs.readFileSync(filepath2, "utf8"));
+  let f1;
+  let f2;
+  if (filepath1.endsWith('.json')) {
+    f1 = JSON.parse(fs.readFileSync(filepath1, "utf8"));
+  }
+  if (filepath2.endsWith('.json')) {
+    f2 = JSON.parse(fs.readFileSync(filepath2, "utf8"));
+  }
+  if (filepath1.endsWith('.yml')) {
+    f1 = yaml.load(fs.readFileSync(filepath1));
+  }
+  if (filepath2.endsWith('.yml')) {
+    f2 = yaml.load(fs.readFileSync(filepath2));
+  }
   const arrF1 = Object.keys(f1);
   const arrF2 = Object.keys(f2);
   let resultObj = {};
@@ -43,6 +56,6 @@ program
   .action(takeAndEcho);
   
 
-// program.parse(process.argv);
+program.parse(process.argv);
 
 module.exports = takeAndEcho;
