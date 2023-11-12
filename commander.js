@@ -1,17 +1,20 @@
 #!/usr/bin/env node
 
 // import {Command} from 'commander'; // (normal include)
-import {program} from 'commander';
-import { readFileSync } from 'node:fs';
-import _ from 'lodash';
+// import {program} from 'commander';
+// import { readFileSync } from 'node:fs';
+// import _ from 'lodash';
+const program = require('commander');
+const fs = require('node:fs');
+const Command = require('commander');
+const _ = require('lodash');
 
 function takeAndEcho(filepath1, filepath2) {
-  const f1 = JSON.parse(readFileSync(filepath1, "utf8"));
-  const f2 = JSON.parse(readFileSync(filepath2, "utf8"));
+  const f1 = JSON.parse(fs.readFileSync(filepath1, "utf8"));
+  const f2 = JSON.parse(fs.readFileSync(filepath2, "utf8"));
   const arrF1 = Object.keys(f1);
   const arrF2 = Object.keys(f2);
   let resultObj = {};
-  let arrF2AndF1keys = [];
   for (let key of arrF1) {
     if(arrF2.includes(key)) {
       if(f1[key] == f2[key]) {
@@ -40,4 +43,6 @@ program
   .action(takeAndEcho);
   
 
-program.parse(process.argv);
+// program.parse(process.argv);
+
+module.exports = takeAndEcho;
