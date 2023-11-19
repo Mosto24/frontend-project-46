@@ -11,7 +11,7 @@ const Command = require('commander');
 const _ = require('lodash');
 const yaml = require('js-yaml');
 const deep = require('./formater/stylish.js');
-
+const plain = require('./formater/plain.js');
 
 
 
@@ -20,9 +20,16 @@ const deep = require('./formater/stylish.js');
 program
   .option('-V, --version', 'output the version number')
   .option('-f, --format <type>',  'output format')
-  .arguments('<filepath1> <filepath2>')
+  .arguments('<filepath1> <filepath2> [formater]')
   .description('Compares two configuration files and shows a difference.')
-  .action(deep);
+  .action(function(filepath1, filepath2, formater = 'stylish') {
+    if(formater == 'stylish') {
+      deep(filepath1, filepath2);
+    }
+    if (formater == 'plain') {
+      plain(filepath1, filepath2);
+    }
+  });
   
 
 program.parse(process.argv);
