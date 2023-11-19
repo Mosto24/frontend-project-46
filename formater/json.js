@@ -19,7 +19,7 @@ function formatFiles(filepath1, filepath2) {
       return [f1, f2];
   }
 
-function deep(file1, file2) {
+function json(file1, file2) {
     let [f1, f2] = formatFiles(file1, file2);
     const arrF1 = Object.keys(f1);
     const arrF2 = Object.keys(f2);
@@ -66,8 +66,9 @@ function deep(file1, file2) {
       }
       return iterValue;
     }
+    resultObj = JSON.stringify(resultObj);
     console.log(resultObj);
     return resultObj;
   }
 
-module.exports = deep;
+module.exports = json;
