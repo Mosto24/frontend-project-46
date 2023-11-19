@@ -1,6 +1,28 @@
 /* eslint-disable no-undef */
-const takeAndEcho = require('../commander.js');
+const deep = require('../commander.js');
 
-test('test1', () => {
-    expect(takeAndEcho('file1.json', 'file2.json')).toEqual(undefined);
+
+let testDiffFilesWithoutRecurse = {
+    "- 1": 1,
+    "2": 2,
+    "+ 3": 3
+}
+let testDiffFilesWithRecurse = {
+    a: {
+        "- b": 'be',
+        "+ b": 'd',
+        "- c": 'c',
+        "+ c": {
+            "x": "x"
+        }
+    },
+    "- d": "d",
+    "+ d": "x"
+}
+
+test('testRecurse', () => {
+    expect(JSON.parse(deep('file5.json', 'file6.json'))).toEqual(testDiffFilesWithoutRecurse);
+    expect(JSON.parse(deep('file7.yml', 'file8.yml'))).toEqual(testDiffFilesWithoutRecurse);
+    expect(JSON.parse(deep('file9.json', 'file10.json'))).toEqual(testDiffFilesWithRecurse);
+    expect(JSON.parse(deep('file11.yml', 'file12.yml'))).toEqual(testDiffFilesWithRecurse);
 });
