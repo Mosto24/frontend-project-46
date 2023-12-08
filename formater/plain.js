@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // const deep = require('./formater/stylish.js');
 
 // function plain(filepath1, filepath2) {
