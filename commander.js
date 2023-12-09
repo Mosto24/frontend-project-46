@@ -20,7 +20,7 @@ const json = require('./formater/json.js');
 program
   .option('-V, --version', 'output the version number')
   .option('-f, --format <type>',  'output format')
-  .arguments('<filepath1> <filepath2> [formater]')
+  .arguments('[filepath1] [filepath2] [formater]')
   .description('Compares two configuration files and shows a difference.')
   .action(function(filepath1, filepath2, formater = 'stylish') {
     if(formater == 'stylish') {

@@ -21,6 +21,9 @@ function formatFiles(filepath1, filepath2) {
   }
 
 function deep(file1, file2) {
+    if(file1 == undefined || file2 == undefined) {
+      return
+    }
     let [f1, f2] = formatFiles(file1, file2);
     const arrF1 = Object.keys(f1);
     const arrF2 = Object.keys(f2);
