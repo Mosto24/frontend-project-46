@@ -72,6 +72,7 @@ function deep(file1, file2) {
     }
     resultObj = JSON.stringify(resultObj, null, 2);
     resultObj = resultObj.replaceAll(`"`, '');
+    resultObj = resultObj.replaceAll(`,`, '');
     console.log(resultObj);
     return resultObj;
   }
