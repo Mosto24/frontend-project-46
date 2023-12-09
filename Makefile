@@ -1,5 +1,5 @@
 commander:
-	node commander.js
+	node gendiff.js
 lint:
 	npx eslint .
 install:
