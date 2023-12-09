@@ -70,6 +70,7 @@ function deep(file1, file2) {
       }
       return iterValue;
     }
+    resultObj = JSON.stringify(resultObj, null, 2);
     console.log(resultObj);
     return resultObj;
   }

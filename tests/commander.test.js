@@ -21,8 +21,8 @@ let testDiffFilesWithRecurse = {
 }
 
 test('testRecurse', () => {
-    expect((deep('file5.json', 'file6.json'))).toEqual(testDiffFilesWithoutRecurse);
-    expect((deep('file7.yml', 'file8.yml'))).toEqual(testDiffFilesWithoutRecurse);
-    expect((deep('file9.json', 'file10.json'))).toEqual(testDiffFilesWithRecurse);
-    expect((deep('file11.yml', 'file12.yml'))).toEqual(testDiffFilesWithRecurse);
+    expect(JSON.parse(deep('file5.json', 'file6.json'))).toEqual(testDiffFilesWithoutRecurse);
+    expect(JSON.parse(deep('file7.yml', 'file8.yml'))).toEqual(testDiffFilesWithoutRecurse);
+    expect(JSON.parse(deep('file9.json', 'file10.json'))).toEqual(testDiffFilesWithRecurse);
+    expect(JSON.parse(deep('file11.yml', 'file12.yml'))).toEqual(testDiffFilesWithRecurse);
 });
