@@ -4,14 +4,15 @@ const json = require('./formater/json.js');
 
 function gendiff(filepath1, filepath2, formater = 'stylish') {
     if(formater == 'stylish') {
-      deep(filepath1, filepath2);
+      return deep(filepath1, filepath2);
     }
     if (formater == 'plain') {
-      plain(filepath1, filepath2);
+      return plain(filepath1, filepath2);
     }
     if (formater == 'json') {
-      json(filepath1, filepath2);
+      return json(filepath1, filepath2);
     }
 }
+
 
 module.exports = gendiff;
