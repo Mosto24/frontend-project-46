@@ -5,9 +5,8 @@
 // import {program} from 'commander';
 // import { readFileSync } from 'node:fs';
 // import _ from 'lodash';
-const program = require('commander');
+const { Command } = require('commander');
 const fs = require('node:fs');
-const Command = require('commander');
 const _ = require('lodash');
 const yaml = require('js-yaml');
 const deep = require('./formater/stylish.js');
@@ -15,7 +14,7 @@ const plain = require('./formater/plain.js');
 const json = require('./formater/json.js');
 
 
-
+const program = new Command();
 
 program
   .option('-V, --version', 'output the version number')
