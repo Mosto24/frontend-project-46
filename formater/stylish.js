@@ -115,9 +115,6 @@ function deep(file1, file2) {
       }
       return iterValue;
     }
-    resultObj = JSON.stringify(resultObj, null, 4);
-    resultObj = resultObj.replaceAll(`"`, '');
-    resultObj = resultObj.replaceAll(`,`, '');
     console.log(resultObj);
     return resultObj;
   }
