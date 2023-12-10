@@ -33,12 +33,12 @@ function deep(file1, file2) {
     for(let key of arrF3) {
       if(arrF1.includes(key) && arrF2.includes(key)) {
         if(typeof f1[key] == 'object' && typeof f2[key] == 'object') {
-          resultObj[`  ${key}`] = recurse(f1[key], f2[key]);
+          resultObj[`    ${key}`] = recurse(f1[key], f2[key]);
         } else if (f1[key] != f2[key]) {
           resultObj[`  - ${key}`] = f1[key];
           resultObj[`  + ${key}`] = f2[key];
         } else {
-          resultObj[`  ${key}`] = f2[key];
+          resultObj[`    ${key}`] = f2[key];
         }
       }
       if(arrF1.includes(key) && !arrF2.includes(key)) {
@@ -75,7 +75,7 @@ function deep(file1, file2) {
       for (let key of arrF3) {
         if(arrF1.includes(key) && arrF2.includes(key)) {
           if(typeof obj1[key] == 'object' && typeof obj2[key] == 'object') {
-            iterValue[`  ${key}`] = recurse(obj1[key], obj2[key]);
+            iterValue[`    ${key}`] = recurse(obj1[key], obj2[key]);
           } else if (obj1[key] != obj2[key]) {
             iterValue[`  - ${key}`] = obj1[key];
             iterValue[`  + ${key}`] = obj2[key];
