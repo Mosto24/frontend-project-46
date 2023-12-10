@@ -33,19 +33,19 @@ function deep(file1, file2) {
     for(let key of arrF3) {
       if(arrF1.includes(key) && arrF2.includes(key)) {
         if(typeof f1[key] == 'object' && typeof f2[key] == 'object') {
-          resultObj[`    ${key}`] = recurse(f1[key], f2[key]);
+          resultObj[`${key}`] = recurse(f1[key], f2[key]);
         } else if (f1[key] != f2[key]) {
-          resultObj[`  - ${key}`] = f1[key];
-          resultObj[`  + ${key}`] = f2[key];
+          resultObj[`- ${key}`] = f1[key];
+          resultObj[`+ ${key}`] = f2[key];
         } else {
-          resultObj[`    ${key}`] = f2[key];
+          resultObj[`${key}`] = f2[key];
         }
       }
       if(arrF1.includes(key) && !arrF2.includes(key)) {
-        resultObj[`  - ${key}`] = f1[key];
+        resultObj[`- ${key}`] = f1[key];
       }
       if(!arrF1.includes(key) && arrF2.includes(key)) {
-        resultObj[`  + ${key}`] = f2[key];
+        resultObj[`+ ${key}`] = f2[key];
       }
     }
     // for (let key of arrF1) {
@@ -75,19 +75,19 @@ function deep(file1, file2) {
       for (let key of arrF3) {
         if(arrF1.includes(key) && arrF2.includes(key)) {
           if(typeof obj1[key] == 'object' && typeof obj2[key] == 'object') {
-            iterValue[`    ${key}`] = recurse(obj1[key], obj2[key]);
+            iterValue[`${key}`] = recurse(obj1[key], obj2[key]);
           } else if (obj1[key] != obj2[key]) {
-            iterValue[`  - ${key}`] = obj1[key];
-            iterValue[`  + ${key}`] = obj2[key];
+            iterValue[`- ${key}`] = obj1[key];
+            iterValue[`+ ${key}`] = obj2[key];
           } else {
             iterValue[`  ${key}`] = obj2[key];
           }
         }
         if(arrF1.includes(key) && !arrF2.includes(key)) {
-          iterValue[`  - ${key}`] = obj1[key];
+          iterValue[`- ${key}`] = obj1[key];
         }
         if(!arrF1.includes(key) && arrF2.includes(key)) {
-          iterValue[`  + ${key}`] = obj2[key];
+          iterValue[`+ ${key}`] = obj2[key];
         }
       }
       return iterValue;
@@ -115,7 +115,7 @@ function deep(file1, file2) {
       }
       return iterValue;
     }
-    resultObj = JSON.stringify(resultObj, null, 2);
+    resultObj = JSON.stringify(resultObj, null, 4);
     resultObj = resultObj.replaceAll(`"`, '');
     resultObj = resultObj.replaceAll(`,`, '');
     console.log(resultObj);
